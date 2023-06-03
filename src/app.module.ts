@@ -9,7 +9,9 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     ConfigModule.forRoot(), //access to ours env
     
-    MongooseModule.forRoot(process.env.MONGO_URI),
+    MongooseModule.forRoot(process.env.MONGO_URI, {
+      dbName: process.env.MONGODB_NAME
+    }),
     
     AuthModule,
   ],
